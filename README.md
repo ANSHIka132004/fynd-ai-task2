@@ -126,19 +126,10 @@ LLM access is handled via OpenRouter. API keys are securely managed using Stream
 - task1_rating_prediction.ipynb
 
 --------------------------------------------------
+## 🚀 Live Deployments
 
-## Notes
+- **User Dashboard:** https://fynd-ai-task2-4kzew33j25msm4hgm8zxmk.streamlit.app/
+- **Admin Dashboard:** https://fynd-ai-task2-4kzew33j25msm4hgm8zxmk.streamlit.app/admin
 
-- No API keys are committed to the repository.
-- API secrets are managed using Streamlit Secrets.
-- CSV storage is used for simplicity and demonstration purposes.
 
---------------------------------------------------
 
-## Submission Checklist
-
-- Public GitHub repository
-- Task 1 notebook included
-- Task 2 application code included
-- Deployed User and Admin dashboards
-- Short report (PDF)
