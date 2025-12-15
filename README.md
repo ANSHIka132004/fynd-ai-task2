@@ -1,130 +1,144 @@
 # Fynd AI Intern – Take Home Assessment
 
-This repository contains my submission for the Fynd AI Intern Take Home Assessment, which consists of two tasks focused on prompt engineering, evaluation, and building a web-based AI feedback system.
+This repository contains my submission for the Fynd AI Intern Take Home Assessment. The assessment consists of two tasks focused on prompt engineering, evaluation, and building a web-based AI feedback system.
 
-##Task 1: Rating Prediction via Prompting
-Objective
+--------------------------------------------------
 
+## Task 1: Rating Prediction via Prompting
+
+### Objective
 Classify Yelp reviews into 1–5 star ratings using prompt-based LLM inference and return structured JSON output.
 
-Dataset
+### Dataset
+- Yelp Reviews Dataset (sampled for efficiency)
 
-Yelp Reviews Dataset (sampled for efficiency)
+### Approach
+- Designed three distinct prompting strategies to classify reviews.
+- Prompts were iteratively refined to:
+  - Improve accuracy
+  - Enforce structured JSON output
+  - Improve reliability and consistency
 
-Approach
+### Output Format
+Example output returned by the model:
 
-Designed three distinct prompting strategies to classify reviews.
-
-Each prompt was iteratively refined to:
-
-Improve accuracy
-
-Enforce structured JSON output
-
-Improve response consistency
-
-Output Format
 {
   "predicted_stars": 4,
   "explanation": "Brief reasoning for the assigned rating."
 }
 
-Evaluation
-
+### Evaluation
 Each prompting strategy was evaluated on:
-
-Accuracy (actual vs predicted)
-
-JSON validity rate
-
-Reliability and consistency
+- Accuracy (actual vs predicted rating)
+- JSON validity rate
+- Reliability and consistency
 
 A comparison table and discussion are included in the notebook.
 
-Files
+### Files
+- task1_rating_prediction.ipynb
 
-task1_rating_prediction.ipynb
+--------------------------------------------------
 
-###Task 2: Two-Dashboard AI Feedback System (Web-Based)
-Objective
+## Task 2: Two-Dashboard AI Feedback System (Web-Based)
 
-Build a web-based application with two dashboards:
+### Objective
+Build a web-based AI feedback system with two dashboards:
+- User Dashboard (public-facing)
+- Admin Dashboard (internal-facing)
 
-User Dashboard (public-facing)
+Both dashboards must be deployed, accessible via public URLs, and must read/write from the same data source.
 
-Admin Dashboard (internal-facing)
+--------------------------------------------------
 
-Both dashboards read and write to the same data source and are fully deployed.
+## User Dashboard
 
-User Dashboard
+### Features
+- Select a star rating (1–5)
+- Write a short textual review
+- Submit feedback
 
-Features:
+### On Submission
+- An AI-generated user-facing response is returned
+- The submission is stored in a shared data source
 
-Select a star rating
+--------------------------------------------------
 
-Write a short review
+## Admin Dashboard
 
-Submit feedback
+### Features
+The Admin Dashboard displays a live-updating list of all submissions, including:
+- User rating
+- User review
+- AI-generated summary
+- AI-suggested recommended action
 
-On submission:
+Both dashboards access the same persisted data source to ensure consistency.
 
-An AI-generated user-facing response is returned
+--------------------------------------------------
 
-The data is stored in a shared data source
+## LLM Usage
 
-Admin Dashboard
+Large Language Models are used for:
+- Generating user-facing responses
+- Review summarisation
+- Recommended next actions
 
-Displays a live-updating list of submissions, including:
+LLM access is handled via OpenRouter. API keys are securely managed using Streamlit Secrets and are not committed to the repository.
 
-User rating
+--------------------------------------------------
 
-User review
+## Architecture
 
-AI-generated summary
+- Single Streamlit application with multiple pages
+- User Dashboard implemented in app.py
+- Admin Dashboard implemented as a Streamlit page in pages/admin.py
+- Shared CSV-based storage for all submissions
 
-AI-suggested recommended action
+--------------------------------------------------
 
-LLM Usage
+## Tech Stack
 
-LLMs are used for:
+- Python
+- Streamlit (multi-page application)
+- OpenRouter (LLM API)
+- Pandas
+- Requests
+- CSV-based persistence
 
-User-facing response generation
+--------------------------------------------------
 
-Review summarization
+## Deployment
 
-Recommended next actions
+- Application deployed on Streamlit Cloud
+- Both dashboards are accessible via public URLs
+- Admin dashboard is accessible via the sidebar within the same deployed app
 
-LLM access is handled via OpenRouter, with API keys managed securely using Streamlit Secrets.
+--------------------------------------------------
 
-Architecture and Tech Stack
+## Files
 
-Python
+- app.py
+- pages/admin.py
+- llm_utils.py
+- storage.py
+- requirements.txt
+- task1_rating_prediction.ipynb
 
-Streamlit (multi-page application)
+--------------------------------------------------
 
-OpenRouter (LLM API)
+## Notes
 
-Pandas
+- No API keys are committed to the repository.
+- API secrets are managed using Streamlit Secrets.
+- CSV storage is used for simplicity and demonstration purposes.
 
-Requests
+--------------------------------------------------
 
-CSV-based persistence
+## Submission Checklist
 
-Repository Structure
-├── app.py
-├── pages/
-│   └── admin.py
-├── llm_utils.py
-├── storage.py
-├── requirements.txt
-├── task1_rating_prediction.ipynb
-├── README.md
-
-Deployed Dashboards
-
-User Dashboard URL:
-<ADD USER DASHBOARD URL HERE>
-
-Admin Dashboard URL:
-<ADD ADMIN DASHBOARD URL HERE>
-(Admin dashboard is accessible via the sidebar in the same application.)
+- Public GitHub repository
+- Task 1 notebook included
+- Task 2 application code included
+- Deployed User and Admin dashboards
+- Short report (PDF)
