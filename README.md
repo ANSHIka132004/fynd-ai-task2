@@ -2,11 +2,7 @@
 
 This repository contains my submission for the Fynd AI Intern Take Home Assessment, which consists of two tasks focused on prompt engineering, evaluation, and building a web-based AI feedback system.
 
-Fynd AI Intern – Take Home Assessment
-
-This repository contains the submission for the Fynd AI Intern Take Home Assessment, which consists of two tasks focused on prompt engineering, evaluation, and building a web-based AI feedback system.
-
-Task 1: Rating Prediction via Prompting
+##Task 1: Rating Prediction via Prompting
 Objective
 
 Classify Yelp reviews into 1–5 star ratings using prompt-based LLM inference and return structured JSON output.
@@ -49,7 +45,7 @@ Files
 
 task1_rating_prediction.ipynb
 
-Task 2: Two-Dashboard AI Feedback System (Web-Based)
+###Task 2: Two-Dashboard AI Feedback System (Web-Based)
 Objective
 
 Build a web-based application with two dashboards:
