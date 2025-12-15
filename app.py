@@ -1,5 +1,10 @@
 import streamlit as st
 from storage import save_submission
+from llm_utils import (
+    generate_user_response,
+    summarize_review,
+    recommend_action
+)
 
 st.title("Leave a Review")
 
@@ -7,10 +12,9 @@ rating = st.selectbox("Select rating", [1,2,3,4,5])
 review = st.text_area("Write your review")
 
 if st.button("Submit"):
-    # Dummy AI outputs (we'll replace with Gemini later)
-    ai_response = "Thank you for your feedback! We really appreciate you taking the time to share your experience."
-    ai_summary = "User shared feedback about service experience."
-    ai_action = "Review internally and take action if needed."
+    ai_response = generate_user_response(review, rating)
+    ai_summary = summarize_review(review)
+    ai_action = recommend_action(review, rating)
 
     save_submission(
         rating,
